@@ -11,11 +11,12 @@ const Header = () => {
   const { user, logout } = useUser();
   const router = useRouter();
   const navItems = [
-    { label: "Home", href: "/" },
     { label: "Search Medicines", href: "/search" },
-    { label: "Doctors", href: "/doctors" },
+    { label: "Doctors", href: "/doctors/dashboard" },
     { label: "Consultation", href: "/consult" },
-    { label: "Pharma Companies", href: "/pharma" },
+    { label: "Pharma Company", href: "/pharma-company/dashboard" },
+    { label: "Pharma Branch", href: "/pharma-branch/dashboard" },
+    { label: "Delivery Partner", href: "/delivery-partner/dashboard" },
     { label: "Medical Stores", href: "/medical-store/dashboard" },
   ];
 

@@ -46,7 +46,13 @@ export default function LoginPage() {
           router.push("/doctors/dashboard");
           break;
         case "pharma_company":
-          router.push("/pharma/dashboard");
+          router.push("/pharma-company/dashboard");
+          break;
+        case "pharma_branch":
+          router.push("/pharma-branch/dashboard"); // ✅ New branch dashboard
+          break;
+        case "delivery_partner":
+          router.push("/delivery-partner/dashboard"); // ✅ New delivery partner dashboard
           break;
         default:
           router.push("/");
@@ -95,6 +101,8 @@ export default function LoginPage() {
           <option value="doctor">Doctor</option>
           <option value="pharma_company">Pharma Company</option>
           <option value="user">User</option>
+          <option value="pharma_branch">Pharma Branch</option>
+          <option value="delivery_partner">Delivery Partner</option>
           <option value="admin">Admin</option>
         </select>
 
