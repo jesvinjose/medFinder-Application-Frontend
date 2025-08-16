@@ -58,7 +58,7 @@ const Header = () => {
                 Login
               </Link>
               <Link
-                href="/auth/register"
+                href="/auth/user"
                 className="text-gray-700 hover:text-blue-600 font-medium"
               >
                 Register

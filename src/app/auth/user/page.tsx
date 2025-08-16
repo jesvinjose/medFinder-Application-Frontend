@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { toast } from 'react-hot-toast';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 export default function RegisterPage() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [role, setRole] = useState('user'); // default role
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("user"); // default role
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -17,25 +17,28 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password, role }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password, role }),
+        }
+      );
 
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || 'Registration failed');
+        throw new Error(data.message || "Registration failed");
       }
 
-      toast.success('Registration successful!');
-      router.push('/auth/login');
+      toast.success("Registration successful!");
+      router.push("/auth/login");
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);
       } else {
-        toast.error('Something went wrong');
+        toast.error("Something went wrong");
       }
     } finally {
       setLoading(false);
@@ -84,6 +87,8 @@ export default function RegisterPage() {
           <option value="doctor">Doctor</option>
           <option value="medical_store">Medical Store</option>
           <option value="pharma_company">Pharma Company</option>
+          <option value="pharma_branch">Pharma Branch</option>
+          <option value="delivery_partner">Delivery Partner</option>
           <option value="admin">Admin</option>
         </select>
 
@@ -92,12 +97,12 @@ export default function RegisterPage() {
           disabled={loading}
           className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 disabled:opacity-50"
         >
-          {loading ? 'Registering...' : 'Register'}
+          {loading ? "Registering..." : "Register"}
         </button>
       </form>
 
       <p className="text-center text-sm mt-4">
-        Already have an account?{' '}
+        Already have an account?{" "}
         <a href="/auth/login" className="text-blue-600 underline">
           Login here
         </a>
