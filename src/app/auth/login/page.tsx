@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("pharma@example.com");
+  const [password, setPassword] = useState("securepassword");
   const [role, setRole] = useState("user");
   const [loading, setLoading] = useState(false);
   const router = useRouter();

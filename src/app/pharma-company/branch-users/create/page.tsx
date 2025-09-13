@@ -69,7 +69,7 @@ export default function CreateBranchUserPage() {
     try {
       const token = localStorage.getItem("accessToken");
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/pharmabranch/create_branch_user`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/pharmacompany/create_branch_user`,
         {
           method: "POST",
           headers: {

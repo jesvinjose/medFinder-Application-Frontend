@@ -3,7 +3,14 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Building2, Package, Users, ClipboardList } from "lucide-react";
+import {
+  Building2,
+  Package,
+  Users,
+  ClipboardList,
+  Boxes, // icon for inventory
+} from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function PharmaCompanyDashboard() {
   const [loading, setLoading] = useState(true);
@@ -40,6 +47,11 @@ export default function PharmaCompanyDashboard() {
         }
       } catch (err) {
         setCompany(null);
+        if (err instanceof Error) {
+          toast.error(err.message);
+        } else {
+          toast.error("Something went wrong");
+        }
       } finally {
         setLoading(false);
       }
@@ -74,6 +86,12 @@ export default function PharmaCompanyDashboard() {
       description: "Create and assign branch logins",
       href: "/pharma-company/branch-users",
       icon: <Users className="w-6 h-6 text-purple-600" />,
+    },
+    {
+      title: "Inventory",
+      description: "Manage your medicines across all branches",
+      href: "/pharma-company/inventory",
+      icon: <Boxes className="w-6 h-6 text-indigo-600" />,
     },
     {
       title: "View Orders",
